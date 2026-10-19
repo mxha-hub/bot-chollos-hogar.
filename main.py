@@ -19,7 +19,7 @@ def enviar_mensaje(texto):
 def main():
     print(f"Canal configurado: {CHANNEL_ID}")
     # RSS específico para la categoría de Hogar y Casa
-    rss_url = "https://www.chollometro.com/rss/categorias/casa"
+    rss_url = "https://www.chollometro.com/rss/categorias/hogar"
     feed = feedparser.parse(rss_url)
     print(f"Entradas encontradas en el RSS: {len(feed.entries)}")
     
