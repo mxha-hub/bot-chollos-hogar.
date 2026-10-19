@@ -1,0 +1,30 @@
+name: Bot Chollos Hogar
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests feedparser
+
+      - name: Ejecutar script
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          AMAZON_TAG: ${{ secrets.AMAZON_TAG }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+        run: python main.py
