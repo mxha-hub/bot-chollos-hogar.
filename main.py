@@ -45,7 +45,7 @@ def main():
             mensaje = f"🏠 <b>{titulo}</b>\n\n🔗 <a href='{link}'>Ver Chollo</a>"
             enviar_mensaje(mensaje)
             encontrado = True
-            break # Publica 1 chollo y finaliza la ejecución
+            break # Publica 2 chollo y finaliza la ejecución
 
     if not encontrado:
         print("No se encontraron chollos de hogar en esta revisión.")
